@@ -1,0 +1,13 @@
+API key - AIzaSyDWAv5AAZCInsz8CONpkpP4KwU4VC8JX2w
+
+Oauth
+client id - 429772975869-0m9e2ubmjbtd6fd55gbrgkboj684tblk.apps.googleusercontent.com
+client secret - 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
+
+
+
+
+
+GET https://plus.codes/api?address=14.917313,-23.511313  [PLUSCODE]
+
+

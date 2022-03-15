@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Verify Code
+
+{% endblock title %}
+
+{% block body %}
+
+<form class="needs-validation" novalidate>
+    <div style="padding: 1vw; " >
+        <a href="/verify" class="btn btn-primary rounded-0 py-2 px-lg-4 d-none d-lg-block ">Verify Your IDAC</a>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationTooltip01">Flat/No. / Building Name</label>
+        <input type="text" class="form-control" id="validationTooltip01" placeholder="enter the Flat/No. / Building Name name" value="eg.2/Nahar" required>
+        
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationTooltip04">Street Name</label>
+        <input type="text" class="form-control" id="validationTooltip04" placeholder="enter the street name" value="eg.Andheri" required>
+        <div class="invalid-tooltip">
+          Please provide a Street Name.
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationTooltip03">City</label>
+          <input type="text" class="form-control" id="validationTooltip03" placeholder="enter the city name" value="eg.Mumbai" required>
+          <div class="invalid-tooltip">
+            Please provide a valid city.
+          </div>
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationTooltip03">State</label>
+        <input type="text" class="form-control" id="validationTooltip03" placeholder="enter the state name" value="eg.Maharashtra" required>
+        <div class="invalid-tooltip">
+          Please provide a valid state.
+        </div>
+      </div>
+      
+      <div class="col-md-3 mb-3">
+        <label for="validationTooltip05">Pin code</label>
+        <input type="text" class="form-control" id="validationTooltip05" placeholder="enter the pincode" value="eg.400075" required>
+        <div class="invalid-tooltip">
+          Please provide a valid pincode.
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Generate code</button>
+  </form>
+
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/lib/wow/wow.min.js"></script>
+  <script src="static/lib/easing/easing.min.js"></script>
+  <script src="static/lib/waypoints/waypoints.min.js"></script>
+  <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="static/js/main.js"></script>
+  
+{% endblock body %}

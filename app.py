@@ -1,7 +1,13 @@
+'''
+This Project is Made by Team-Ignite for Smart India Hackathon (SIH).
+Topic : Digital Access Code generation and use for address tracking - AK1207 - 425 (Software).
+'''
+
+
 # Imports for WebApp
 from flask import *
 
-# importing geopy library (For Coordinates)
+# Importing geopy library (For Coordinates)
 from geopy.geocoders import Nominatim
 
 

@@ -21,11 +21,12 @@ Generate Code
       <div class="col-sm">
         <br><br><br>
 
-        
-        <h1 class="text-uppercase mb-4 ">Your Details are :-</h1>
+
+        <h1 class="text-uppercase mb-4 "><span class="text-uppercase text-primary ">Your Details are :-</span></h1>
         <h3> Global Address : {{global_address}} </h3>
         <h3> Latitude : {{latitude_generated}} </h3>
         <h3> Longitude : {{longitude_generated}} </h3>
+        <h3> Plus Code : {{plus_code}} </h3>
 
 
 
@@ -33,7 +34,7 @@ Generate Code
 
 
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -46,21 +47,23 @@ Generate Code
         <form method="POST" action="/generate">
           <div class="form-row">
             <div class="col-md-10 mb-3">
-              <label for="flat_building">Flat No. / Building Name</label>
+              <label for="flat_building">Flat No. / Building Name / Locality</label>
               <input type="text" class="form-control" id="flat_building" name="flat_building"
                 placeholder="Eg: A/12, Monarch Apartment" value="" required>
-        
+
             </div>
             <div class="col-md-10 mb-3">
               <label for="street">Street Name</label>
-              <input type="text" class="form-control" id="street" name="street" placeholder="Eg: Sion" value="" required>
-              
+              <input type="text" class="form-control" id="street" name="street" placeholder="Eg: Sion" value=""
+                required>
+
             </div>
             <div class="form-row">
               <div class="col-md-10 mb-3">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" name="city" placeholder="Eg: Mumbai" value="" required>
-                
+                <input type="text" class="form-control" id="city" name="city" placeholder="Eg: Mumbai" value=""
+                  required>
+
               </div>
             </div>
             <div class="form-row">
@@ -68,27 +71,27 @@ Generate Code
                 <label for="state">State</label>
                 <input type="text" class="form-control" id="state" name="state" placeholder="Eg: Maharashtra" value=""
                   required>
-                
+
               </div>
               <div class="form-row">
                 <div class="col-md-10 mb-3">
                   <label for="country">Country</label>
                   <input type="text" class="form-control" id="country" name="country" placeholder="Eg: India" value=""
                     required>
-                  
+
                 </div>
-        
+
                 <div class="col-md-10 mb-3">
                   <label for="pincode">Pin code</label>
                   <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Eg: 400075" value=""
                     required>
-                  
+
                 </div>
               </div>
               <button class="btn btn-primary" type="submit">Generate code</button>
         </form>
       </div>
-      
+
     </div>
   </div>
 </div>

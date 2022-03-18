@@ -10,9 +10,14 @@ from flask import *
 # Importing geopy library (For Coordinates)
 from geopy.geocoders import Nominatim
 
+# Imports for PlusCodeApi
+import requests
+import json
+
 
 # Global Variables
 GENERATED = False
+VERIFIED = False
 
 
 
@@ -32,8 +37,26 @@ def findcoordinates(address):
 
     return getLoc.address,getLoc.latitude,getLoc.longitude
 
+# Function to find plus code using Coordinates
+
+def findpluscode(lat,long):
+    s1 = str(lat) + ',' +str(long)
+    parameters = {
+        # 'address' : '19.108914019118583, 72.86535472954193'
+        'address' : str(s1)
+    }
+    response = requests.get("https://plus.codes/api", params=parameters)
+    r = json.loads(response.text)
+    return r['plus_code']['global_code']
 
 
+# Function to find Address using Coordinates
+
+def findaddressusingcoordinates(lat,long):
+    s1 = str(lat) + ',' + str(long)
+    geoLoc = Nominatim(user_agent="GetLoc")
+    locname = geoLoc.reverse(s1)
+    return str(locname.address)
 
 
 
@@ -82,7 +105,9 @@ def GenerateCode():
         a,b,c = findcoordinates(address)
         print(a,b,c)
 
-        return render_template('GenerateCode.html', generated = GENERATED, global_address = a, latitude_generated = b, longitude_generated = c)
+        pluscode = findpluscode(float(b),float(c))
+
+        return render_template('GenerateCode.html', generated = GENERATED, global_address = a, latitude_generated = b, longitude_generated = c, plus_code = pluscode)
 
         
 
@@ -91,9 +116,25 @@ def GenerateCode():
     return render_template('GenerateCode.html', generated = GENERATED)
 
 
-@app.route("/verify")
+@app.route("/verify", methods=['GET', 'POST'])
 def Verify():
-    return render_template('VerifyCode.html')
+    global VERIFIED
+
+    if request.method == "POST":
+        VERIFIED = True
+        latitude = str(request.form['lat'])
+        longitude = str(request.form['long'])
+        # IDAC = str(request.form['IDAC'])
+        globaladdress = findaddressusingcoordinates(latitude,longitude)
+        pluscode = findpluscode(latitude,longitude)
+        return render_template('VerifyCode.html', verified=VERIFIED, global_address=globaladdress, plus_code=pluscode, latitude_generated=latitude,longitude_generated=longitude)
+        
+
+        
+
+
+    VERIFIED = False
+    return render_template('VerifyCode.html', verified=VERIFIED)
 
 
 

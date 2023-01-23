@@ -71,9 +71,7 @@ def AboutPage():
 
 @app.route("/generate", methods=['GET', 'POST'])
 
-def getData(address):
-    response = requests.get('https://nominatim.openstreetmap.org/search?q='+address)
-    print(response)
+
 def GenerateCode():
     global GENERATED
 
@@ -95,7 +93,6 @@ def GenerateCode():
 
         # This Address dosent contain flat and Building
         address = str(street + ',' + city + ',' + country + ',' + pincode)
-        getData(address)
         print(address)
 
         a, b, c = findcoordinates(address)
